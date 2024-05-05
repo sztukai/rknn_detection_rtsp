@@ -4,10 +4,10 @@ import traceback
 from util.tools import TextLogger
 
 # 20240314@xjk: path
-aiimg = '/opt/xdiot/xdexchange/aiimg/'
-log_location = "/opt/xdiot/xdexchange/ailog/"
-Json_log_location = "/opt/xdiot/xdexchange/json_log/"
-instruction_file = '/opt/xdiot/xdexchange/conf/camera.json'
+aiimg = './aiimg/'
+log_location = "./ailog/"
+Json_log_location = "./json_log/"
+instruction_file = './camera.json'
 logger = TextLogger(log_location)
 Json_logger = TextLogger(Json_log_location, Logger_name='Json_log')
 

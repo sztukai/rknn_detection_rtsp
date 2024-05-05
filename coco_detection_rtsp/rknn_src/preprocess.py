@@ -31,7 +31,7 @@ class PreProcData(object):
 
 class Preprocess(object): 
     """preprocess"""
-    def __init__(self, stream_name, channel, resize_height):
+    def __init__(self, stream_name, channel, IMG_SIZE):
         self._stream_name = str(stream_name)
         self._channel = int(channel) 
         # 20240331@xjk: ipcaddr
@@ -41,7 +41,8 @@ class Preprocess(object):
             ERROR = traceback.format_exc()
             logger.error_log(ERROR)
 
-        self._resize_height = resize_height
+        # img_shape = (IMG_SIZE, IMG_SIZE)
+        self._img_size = IMG_SIZE        
 
         self._status = STATUS_PREPROC_INIT
         self._cap = None
@@ -55,13 +56,13 @@ class Preprocess(object):
 
     def _start(self):
         # creat a thread and put func in the thread
-        thread = threading.Thread(self._thread_entry, [])            
+        thread = threading.Thread(target=self._thread_entry)            
         thread.start()
 
         logger.text_log("Start sub thread ok, wait init...")
         while self._status == STATUS_PREPROC_INIT:
             time.sleep(0.001)
-        logger.text_log("Status changed to ", self._status)
+        logger.text_log("Status changed to %s" % self._status)
         
         while self._status == STATUS_PREPROC_RUNNING:
             if self._image_put is not None:
@@ -70,7 +71,7 @@ class Preprocess(object):
         return self._status != STATUS_PREPROC_ERROR
 
 
-    def _thread_entry(self, args_list):
+    def _thread_entry(self):
         #OD:20231103@cmx:send video status to control
         if self._stream_name is not None:
             dic_camera = {'camera':'status of %s 正常运行' % self._stream_name}
@@ -89,7 +90,7 @@ class Preprocess(object):
         while self._status == STATUS_PREPROC_RUNNING: 
             # be similar to success, frame = cap.read()
             ret, image = self._cap.read()
-            if ret:
+            if (ret == False) or (image is None and not self._cap.isOpened()):
                 logger.error_log("Video %s decode failed" % (self._stream_name))
                 # 20240314@xjk: max restart time
                 self._camera_restart_time += 1
@@ -101,26 +102,6 @@ class Preprocess(object):
                     logger.text_log('%s restart' % self._stream_name)
                     dic_camera = {'camera':'status of %s restart !!!' % self._stream_name}
                     post_camera_mess(dic_camera)
-
-                # restart the camera
-                if self._cap:
-                    self._cap.release()
-                self._cap = cv2.VideoCapture(self._stream_name)
-                ret, image = self._cap.read()
-                self._status = STATUS_PREPROC_RUNNING
-            if (image is None) and self._cap.is_finished():
-                logger.text_log("Video %s decode finish" % (self._stream_name)) 
-                # 20240314@xjk: max restart time
-                self._camera_restart_time += 1
-                if self._camera_restart_time >= 10:
-                    logger.error_log('%s has restarted 10 time, stopping' % self._stream_name)
-                    dic_camera = {'camera':'status of %s exception, stopping!!!' % self._stream_name}
-                    post_camera_mess(dic_camera)
-                    time.sleep(600)
-                    logger.text_log('%s restart' % self._stream_name)
-                    dic_camera = {'camera':'status of %s restart !!!' % self._stream_name}
-                    post_camera_mess(dic_camera)
-        
                 # restart the camera
                 if self._cap:
                     self._cap.release()
@@ -128,16 +109,15 @@ class Preprocess(object):
                 ret, image = self._cap.read()
                 self._status = STATUS_PREPROC_RUNNING
             try:
-                if image and (int(frame_cnt) % 25 == 0):
+                if image is not None and (int(frame_cnt) % 25 == 0):
                         print('=====log20=====')
                         self._process_frame(image)
                         frame_cnt = 1 
-                    
                 frame_cnt += 1
+                image = None
             except:
                     ERROR = traceback.format_exc()
                     logger.error_log(ERROR)
-
 
         self._thread_exit()        
 
@@ -149,13 +129,13 @@ class Preprocess(object):
             if self._put_time % 200 == 0 and self._camera_restart_time > 0:
                 self._camera_restart_time -= 1
             self._put_time += 1
-    
-        # 20240331@xjk: ipcaddr
-        data = PreProcData(self._channel, frame.width, frame.height, 
-                        frame, self._ipcaddr) 
-             
-        # 20240314@xjk: put data        
-        self._image_put = data
+            if frame is not None:
+		# 20240331@xjk: ipcaddr
+                data = PreProcData(self._channel, self._img_size, self._img_size, 
+		                frame, self._ipcaddr) 
+		     
+		# 20240314@xjk: put data        
+                self._image_put = data
         print("=====log27=====")
         logger.text_log('%s，图片预处理完成' % (self._ipcaddr))
 
@@ -200,7 +180,7 @@ class Preprocess(object):
             return True, None
         preproc_data = self._image_put
         self._image_put = None
-        logger.text_log('第%d个npu，%s，功能性检测取图片成功' % (self._device_id,self._ipcaddr))
+        logger.text_log('%s，功能性检测取图片成功' % self._ipcaddr)
         return True, preproc_data 
     
     def __del__(self):

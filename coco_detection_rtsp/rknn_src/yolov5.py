@@ -1,4 +1,4 @@
-from numpy import np
+import numpy as np
 import cv2
 
 OBJ_THRESH = 0.7
@@ -20,7 +20,6 @@ def xywh2xyxy(x):
 
 
 def process(input, mask, anchors):
-
     anchors = [anchors[i] for i in mask]
     grid_h, grid_w = map(int, input.shape[0:2])
 
@@ -165,6 +164,7 @@ def draw(image, boxes, scores, classes):
         scores: ndarray, scores of objects.
         all_classes: all classes name.
     """
+    Sign = False
     for box, score, cl in zip(boxes, scores, classes):
         if score > OBJ_THRESH:
             top, left, right, bottom = box
@@ -174,23 +174,26 @@ def draw(image, boxes, scores, classes):
             left = int(left)
             right = int(right)
             bottom = int(bottom)
-
             cv2.rectangle(image, (top, left), (right, bottom), (255, 0, 0), 2)
             cv2.putText(image, '{0} {1:.2f}'.format(CLASSES[cl], score),
                         (top, left - 6),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         0.6, (0, 0, 255), 2)
+            Sign = True
+        if Sign:
+           img = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+           cv2.imwrite('img.jpg', img)
             
-class Yolov3(object):
+class Yolov5(object):
     """yolov3"""
 
-    def __init__(self, Rknn_model, model_width, model_height):
+    def __init__(self, Rknn_model, IMG_SIZE):
         self._Rknn_model = Rknn_model
-        self._model_width = model_width
-        self._model_height = model_height
+        self._model_width = IMG_SIZE
+        self._model_height = IMG_SIZE
 
     def __del__(self):
-        if self._model:
+        if self._Rknn_model:
             self._Rknn_model.release()
 
     def execute(self, data):
@@ -198,5 +201,23 @@ class Yolov3(object):
         input = data.input_img.reshape(1, 640, 640, 3)
         return self._Rknn_model.inference(inputs=[input], data_format='nhwc')
 
-    def post_process(self, infer_output, data):
-        pass
+    def post_process(self, outputs, img):
+        input0_data = outputs[0]
+        input1_data = outputs[1]
+        input2_data = outputs[2]
+
+        input0_data = input0_data.reshape([3, -1]+[80, 80])
+        input1_data = input1_data.reshape([3, -1]+[40, 40])
+        input2_data = input2_data.reshape([3, -1]+[20, 20])
+
+
+        input_data = list()
+        input_data.append(np.transpose(input0_data, (2, 3, 0, 1)))
+        input_data.append(np.transpose(input1_data, (2, 3, 0, 1)))
+        input_data.append(np.transpose(input2_data, (2, 3, 0, 1)))
+
+        boxes, classes, scores = yolov5_post_process(input_data)
+
+        if boxes is not None:
+            draw(img, boxes, scores, classes)
+        

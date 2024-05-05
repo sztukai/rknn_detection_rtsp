@@ -34,9 +34,9 @@ def letterbox(im, new_shape=(640, 640), color=(0, 0, 0)):
     im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  # add border
     return im, ratio, (dw, dh)
 
-def img_preprocess(yuv420sp, MODEL_WIDTH, MODEL_HEIGHT):
+def img_preprocess(img, MODEL_WIDTH=640, MODEL_HEIGHT=640):
     # 1. change form
-    img = cv2.cvtColor(yuv420sp, cv2.COLOR_YUV420sp2RGB)
+    cv2.imwrite('frame.jpg', img)
     # 2. resize
     h0, w0 = img.shape[:2]
     r = 640 / max(h0, w0)
@@ -45,6 +45,7 @@ def img_preprocess(yuv420sp, MODEL_WIDTH, MODEL_HEIGHT):
         img = cv2.resize(img, (int(w0 * r), int(h0 * r)), interpolation=interp)
     # 3. padding
     img, ratio, (dw, dh) = letterbox(img, new_shape=(MODEL_WIDTH, MODEL_HEIGHT))
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     return img
 
 

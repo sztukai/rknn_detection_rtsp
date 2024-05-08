@@ -3,12 +3,25 @@ import cv2
 import logging  
 import datetime
 from logging.handlers import TimedRotatingFileHandler
+from PIL import Image
 
 def date_1():
     current_time_file = datetime.datetime.now()
     current_time_str_file = current_time_file.strftime("%Y-%m-%d")
     current_time_str_file = str(current_time_str_file)
     return current_time_str_file
+
+def date_4():
+    current_time = datetime.datetime.now()
+    current_time_str = current_time.strftime("%Y%m%d%H%M%S.%f")[:-3]
+    current_time_str = str(current_time_str)
+    return current_time_str
+
+def save_pillow(img, path, new_size=(1280, 720)):
+    im = Image.fromarray(img)
+    # im_resized = im.resize(new_size)
+    # im_resized.save(path)
+    im.save(path)
 
 def letterbox(im, new_shape=(640, 640), color=(0, 0, 0)):
     # Resize and pad image while meeting stride-multiple constraints

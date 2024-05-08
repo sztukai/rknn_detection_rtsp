@@ -1,10 +1,17 @@
-import numpy as np
+import os
 import cv2
+import numpy as np
+from util.message import *
+from util.tools import date_1, date_4, save_pillow
 
 OBJ_THRESH = 0.7
 NMS_THRESH = 0.15
 IMG_SIZE = 640
 CLASSES = ('car_light', 'work_clothes', 'helmet', 'intrusion', 'fire', 'smoke', 'extinguisher', 'parkingspace', 'parkingspace', 'waste', 'distbin')
+current_time_str_file = date_1()
+pos_img = os.path.join(aiimg, current_time_str_file)
+if not os.path.exists(pos_img):
+    os.makedirs(pos_img)
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -168,21 +175,25 @@ def draw(image, boxes, scores, classes):
     for box, score, cl in zip(boxes, scores, classes):
         if score > OBJ_THRESH:
             top, left, right, bottom = box
-            print('class: {}, score: {}'.format(CLASSES[cl], score))
+            label = CLASSES[cl]
+            print('class: {}, score: {}'.format(label, score))
             print('box coordinate left,top,right,down: [{}, {}, {}, {}]'.format(top, left, right, bottom))
             top = int(top)
             left = int(left)
             right = int(right)
             bottom = int(bottom)
             cv2.rectangle(image, (top, left), (right, bottom), (255, 0, 0), 2)
-            cv2.putText(image, '{0} {1:.2f}'.format(CLASSES[cl], score),
+            cv2.putText(image, '{0} {1:.2f}'.format(label, score),
                         (top, left - 6),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         0.6, (0, 0, 255), 2)
             Sign = True
         if Sign:
-           img = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-           cv2.imwrite('img.jpg', img)
+           current_time_str = date_4()
+           save_path = os.path.join(pos_img, '%s_%s.jpg'%(label,current_time_str))
+           save_pillow(image, save_path)
+        #    img = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        #    cv2.imwrite('img.jpg', img)
             
 class Yolov5(object):
     """yolov3"""

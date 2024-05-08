@@ -4,10 +4,11 @@ import traceback
 from util.tools import TextLogger
 
 # 20240314@xjk: path
-aiimg = './aiimg/'
-log_location = "./ailog/"
-Json_log_location = "./json_log/"
-instruction_file = './camera.json'
+aiimg = './aiimg/' 
+log_location = "./ailog/" # 输出log
+Json_log_location = "./json_log/" # 上位机log
+instruction_file = './camera.json' # 配置文件
+
 logger = TextLogger(log_location)
 Json_logger = TextLogger(Json_log_location, Logger_name='Json_log')
 

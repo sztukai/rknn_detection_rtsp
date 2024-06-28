@@ -108,7 +108,7 @@ def main():
 
     process_list = [] # 进程列表
     max_process_num = 1 # 最大进程数
-    max_camera_num = 20 # 最大运行摄像头数
+    max_camera_num = 5 # 最大运行摄像头数
     index_of_camera = 0 # 摄像头索引
     max_reader = 0 # 一进程处理的摄像头数
     if max_camera_num % max_process_num == 0:

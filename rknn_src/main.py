@@ -25,7 +25,7 @@ def create_threads(detector, n, a, video_id):
     # 20230911@cmx: multi video in time
     try:
         for i in range(n):
-                preprocesser = Preprocess(js_file["camera"][i+a]['playurl'], 
+                preprocesser = Preprocess(js_file["camera"][i+a]['Playurl'], 
                                         len(video_id),
                                         IMG_SIZE)
                 video_decoders.append(preprocesser)

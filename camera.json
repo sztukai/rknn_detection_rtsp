@@ -1,0 +1,805 @@
+{
+	"apiurl": "http://127.0.0.1:6060/api/receive",
+	"camera": [
+		{
+			"ch": "1111",
+			"name": "摄像头名称",
+			"ip": "192.168.100.201",
+			"Playurl": "rtsp://admin:Admin707@192.168.1.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1112",
+			"name": "摄像头名称2",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.1.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1113",
+			"name": "摄像头名称3",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.1.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1114",
+			"name": "摄像头名称4",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.1.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1115",
+			"name": "摄像头名称5",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.1.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1116",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.2.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1117",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.2.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1118",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.2.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1119",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.2.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1120",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.2.64:554/h265/ch1/main/av_stream",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1121",
+			"name": "摄像头名称",
+			"ip": "192.168.100.201",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1122",
+			"name": "摄像头名称2",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1123",
+			"name": "摄像头名称3",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1124",
+			"name": "摄像头名称4",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1125",
+			"name": "摄像头名称5",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1126",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1127",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1128",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1129",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		},
+		{
+			"ch": "1130",
+			"name": "摄像头名称6",
+			"ip": "192.168.100.202",
+			"Playurl": "rtsp://admin:Admin707@192.168.3.64/LiveMedia/ch1/Media1",
+			"encoding": "h264",
+			"ai": {
+				"intrusion": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 400,
+							"x2": 960,
+							"y2": 1080
+						},
+						{
+							"areaid": "2",
+							"x1": 960,
+							"y1": 400,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				},
+				"fire": {
+					"areaid": [
+						{
+							"areaid": "1",
+							"x1": 0,
+							"y1": 0,
+							"x2": 1920,
+							"y2": 1080
+						}
+					],
+					"reliability": 70
+				}
+			}
+		}
+	]
+}
